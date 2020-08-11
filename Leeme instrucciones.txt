@@ -1,0 +1,45 @@
+crear la base de datos en mysql workbech
+ingresar el script :
+create database fasionstore;
+use fashionstore;
+CREATE TABLE cliente(
+       idcliente            INT auto_increment,
+       nombre           VARCHAR(50) NOT NULL,
+       contrasenia           VARCHAR(50) NOT NULL,
+       correo           VARCHAR(50) NOT NULL,
+       direccion          VARCHAR(50) NOT NULL,
+       PRIMARY KEY (idcliente)
+);
+CREATE TABLE producto(
+  idproducto int(11) NOT NULL AUTO_INCREMENT,
+  nombre varchar(50) NOT NULL,
+  descripcion varchar(50) NOT NULL,
+  tipo varchar(50) NOT NULL,
+  precio float NOT NULL,
+  stock int(11) NOT NULL,
+  imagen   MEDIUMBLOB,
+  PRIMARY KEY (idproducto)
+);
+CREATE TABLE cliente_Producto(
+idproducto int,
+idcliente int,
+FOREIGN KEY(idproducto) REFERENCES producto(idproducto),
+FOREIGN KEY(idcliente) REFERENCES cliente(idcliente),
+PRIMARY KEY(idcliente,idproducto)
+
+);
+
+ya despues de crear la base con el script
+iniciar el apache y mysql en xampp
+ ir a donde esta instalado el xampp
+en la carpeta hay otra que se llama htdocs
+pegar dentro de htdocs la carpeta del proyecto
+ir a chrome y escribir localhost/electro y dar enter
+de ahi ya funciona la pagina
+hasta ahora recien le puse los botones de registro y el login
+ya esta con eso conectado la base de datos
+con la aplicacion
+ya esta con sesiones para que se quede el cliente grabado
+despues de que esta grabado ya esta el cierre de sesion
+al presiona en cerrar sesion se destruye la sesion
+y puedes ingresar con otro usuario o con el mismo
